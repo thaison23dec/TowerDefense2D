@@ -41,6 +41,7 @@ public class CharacterBase : UnitController
         attackCoroutine = null;
         currentState = CHARACTER_STATE.WALK_FREE;
         hpBar.UpdateBar(currentHp, data.Hp);
+        graphic.transform.rotation = Quaternion.Euler(0, 0, 0);
         gameObject.SetActive(true);
     }
 
@@ -60,8 +61,6 @@ public class CharacterBase : UnitController
     protected virtual void FixedUpdate()
     {
         ProcessState();
-        
-        FacingCheck();
         if(currentHp <= 0)
         {
             Die();
@@ -134,6 +133,7 @@ public class CharacterBase : UnitController
             {
                 Vector3 directionTravel = targetPos - currentPos;
                 directionTravel.Normalize();
+                FacingCheck(targetPos);
                 rb.MovePosition(currentPos + (directionTravel * Mathf.Abs(data.MoveSpeed) * Time.deltaTime));
                 ChangeAnim("walk");
             }
@@ -230,35 +230,21 @@ public class CharacterBase : UnitController
         Vector3 currentPos = transform.position;
         Vector3 directionTravel = arrival.position - currentPos;
         directionTravel.Normalize();
+        FacingCheck(arrival.position);
         rb.MovePosition(currentPos + (directionTravel * Mathf.Abs(data.MoveSpeed) * Time.deltaTime));
     }
 
 
-    public void FacingCheck()
+    public void FacingCheck(Vector3 arrival)
     {
-        if (currentTarget == null)
+        if (arrival.x > transform.position.x)
         {
-            if (rb.velocity.x >= 0)
-            {
-                graphic.transform.rotation = Quaternion.Euler(0, 0, 0);
-            }
-            else
-            {
-                graphic.transform.rotation = Quaternion.Euler(0, 180, 0);
-            }
-        } 
+            graphic.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
         else
         {
-            if (currentTarget.transform.position.x > transform.position.x)
-            {
-                graphic.transform.rotation = Quaternion.Euler(0, 0, 0);
-            }
-            else
-            {
-                graphic.transform.rotation = Quaternion.Euler(0, 180, 0);
-            }
+            graphic.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
-        
     }
 
     public virtual void Walk()
