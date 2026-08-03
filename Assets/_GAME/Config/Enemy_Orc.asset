@@ -16,6 +16,6 @@ MonoBehaviour:
   attackRange: 0.5
   attackCooldown: 1.5
   moveSpeed: 1
-  damage: 30
+  damage: 100
   hp: 100
   teamType: 1

@@ -5,6 +5,7 @@ using UnityEngine;
 public class TowerSpawn : MonoBehaviour
 {
     [SerializeField] public AllyController Ally;
+    public Transform spawnPos;
     public List<PatrolSlot> patrolList; 
 
     private void Awake()
@@ -28,7 +29,7 @@ public class TowerSpawn : MonoBehaviour
             }
             if(patrolSlot != null)
             {
-                AllyController a = SimplePool.Spawn<AllyController>(PoolType.Ally_Sword, transform.position, transform.rotation);
+                AllyController a = SimplePool.Spawn<AllyController>(PoolType.Ally_Sword, spawnPos.position, spawnPos.rotation);
                 a.patrolPos = patrolSlot.Point;
                 patrolSlot.Owner = a;
                 a.Init();

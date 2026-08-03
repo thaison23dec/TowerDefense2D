@@ -14,6 +14,7 @@ public class CharacterBase : UnitController
     public bool IsDead;
     [SerializeField] protected Collider2D collider;
     [SerializeField] protected Rigidbody2D rb;
+    [SerializeField] HpBar hpBar;
     protected string currentAnimName;
     private Coroutine attackCoroutine;
     public CHARACTER_STATE currentState;
@@ -39,6 +40,7 @@ public class CharacterBase : UnitController
         Team = data.TeamType;
         attackCoroutine = null;
         currentState = CHARACTER_STATE.WALK_FREE;
+        hpBar.UpdateBar(currentHp, data.Hp);
         gameObject.SetActive(true);
     }
 
@@ -328,6 +330,7 @@ public class CharacterBase : UnitController
     public void TakeDamage(float damage)
     {
         currentHp -= damage;
+        hpBar.UpdateBar(currentHp, data.Hp);
     }
 
     public void ChangeAnim(string animName)
