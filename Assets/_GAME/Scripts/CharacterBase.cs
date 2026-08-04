@@ -224,13 +224,13 @@ public class CharacterBase : UnitController
         return target;
     }
 
-    public void MoveToPosition(Transform arrival)
+    public void MoveToPosition(Vector3 arrival)
     {
         if (IsDead) return;
         Vector3 currentPos = transform.position;
-        Vector3 directionTravel = arrival.position - currentPos;
+        Vector3 directionTravel = arrival - currentPos;
         directionTravel.Normalize();
-        FacingCheck(arrival.position);
+        FacingCheck(arrival);
         rb.MovePosition(currentPos + (directionTravel * Mathf.Abs(data.MoveSpeed) * Time.deltaTime));
     }
 

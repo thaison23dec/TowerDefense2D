@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class AllyController : CharacterBase
 {
-    [SerializeField] public Transform patrolPos;
+    [SerializeField] public Vector3 patrolPos;
+    public event Action<AllyController> OnDead;
 
     protected override void Awake()
     {
@@ -16,13 +18,9 @@ public class AllyController : CharacterBase
 
     protected override void Die()
     {
-        if(patrolPos != null)
-        {
-            patrolPos.GetComponent<PatrolSlot>().Owner = null;
-            patrolPos = null;
-        } 
-        base.Die();
         
+        base.Die();
+        OnDead?.Invoke(this);
     }
 
 
@@ -35,13 +33,18 @@ public class AllyController : CharacterBase
     public override void Walk()
     {
         base.Walk();
-        if(currentTarget == null)
+        if(currentTarget == null && patrolPos != null)
         {
             MoveToPosition(patrolPos);
-            if(Vector3.Distance(transform.position, patrolPos.position) < 0.1f)
+            if(Vector3.Distance(transform.position, patrolPos) < 0.1f)
             {
                 Idle();
             }
         }
+    }
+
+    public void SetPatrolPosition(Vector3 pos)
+    {
+        patrolPos = pos;
     }
 }

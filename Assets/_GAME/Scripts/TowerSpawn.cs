@@ -4,50 +4,93 @@ using UnityEngine;
 
 public class TowerSpawn : MonoBehaviour
 {
-    [SerializeField] public AllyController Ally;
-    public Transform spawnPos;
-    public List<PatrolSlot> patrolList; 
+    [SerializeField] private AllyController allyPrefab;
+    [SerializeField] private Transform spawnPos;
 
-    private void Awake()
-    {
-        
-    }
-    void Start()
-    {
-       
-    }
+    [SerializeField] private int allyCount = 3;
+    private List<Vector3Int> patrolCells;
+    private List<AllyController> allies = new List<AllyController>();
 
-    void Update()
+
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        patrolCells = MapManager.Instance.FindPatrolCells(
+            transform.position,
+            allyCount,
+            1
+        );
+
+        if (patrolCells == null)
         {
-
-            PatrolSlot patrolSlot = null;
-            if (GetFreeSlot() != null)
-            {
-                patrolSlot = GetFreeSlot();
-            }
-            if(patrolSlot != null)
-            {
-                AllyController a = SimplePool.Spawn<AllyController>(PoolType.Ally_Sword, spawnPos.position, spawnPos.rotation);
-                a.patrolPos = patrolSlot.Point;
-                patrolSlot.Owner = a;
-                a.Init();
-            }
+            return;
         }
 
+
+        SpawnAllAlly();
     }
 
-    PatrolSlot GetFreeSlot()
+    private void Update()
     {
-        foreach(PatrolSlot slot in patrolList)
+        if (!HasAliveAlly())
         {
-            if (!slot.IsOccupied)
-            {
-                return slot;
-            }
+            
         }
-        return null;
     }
 
+
+    private void SpawnAllAlly()
+    {
+        if (HasAliveAlly())
+        {
+            return;
+        }
+        allies.Clear();
+
+        for (int i = 0; i < patrolCells.Count; i++)
+        {
+            AllyController ally = SimplePool.Spawn<AllyController>(
+                PoolType.Ally_Sword,
+                spawnPos.position,
+                Quaternion.identity);
+
+            ally.Init();
+            ally.OnDead += HandleAllyDead;
+            Vector3 patrolPos =
+                MapManager.Instance.GetCellCenterWorld(patrolCells[i]);
+
+            ally.SetPatrolPosition(patrolPos);
+
+            allies.Add(ally);
+        }
+    }
+
+
+
+    private bool HasAliveAlly()
+    {
+        for (int i = allies.Count - 1; i >= 0; i--)
+        {
+            if (allies[i] == null || allies[i].IsDead)
+            {
+                allies.RemoveAt(i);
+                continue;
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+    private void HandleAllyDead(AllyController ally)
+    {
+        ally.OnDead -= HandleAllyDead;
+
+        allies.Remove(ally);
+
+        if (allies.Count == 0)
+        {
+            Invoke("SpawnAllAlly", 2f);
+        }
+    }
 }

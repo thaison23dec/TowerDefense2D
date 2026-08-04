@@ -36,7 +36,7 @@ public class EnemyController : CharacterBase
         base.Walk();
         if (currentTarget == null)
         {
-            MoveToPosition(WaypointPath.Instance.WaypointList[currentWpTargetIndx]);
+            MoveToPosition(WaypointPath.Instance.WaypointList[currentWpTargetIndx].position);
         }
     }
 

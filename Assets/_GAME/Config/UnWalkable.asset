@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5b60ce8088c9524fa74a2a711f8f99c, type: 3}
-  m_Name: Enemy_Orc
+  m_Script: {fileID: 11500000, guid: bfb4c43be8096c947bffe52660d429b1, type: 3}
+  m_Name: UnWalkable
   m_EditorClassIdentifier: 
-  sightRange: 3
-  attackRange: 0.5
-  attackCooldown: 1.5
-  moveSpeed: 1
-  damage: 90
-  hp: 100
-  teamType: 1
+  tiles:
+  - {fileID: 11400000, guid: 65007b65f6807e248a8c5d7170f0ee4a, type: 2}
+  isWalkable: 0
