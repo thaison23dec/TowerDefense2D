@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerSpawn : MonoBehaviour
+public class TowerSpawn : TowerBase
 {
     [SerializeField] private AllyController allyPrefab;
     [SerializeField] private Transform spawnPos;
