@@ -15,7 +15,7 @@ MonoBehaviour:
   sightRange: 3
   attackRange: 0.5
   attackCooldown: 1.5
-  moveSpeed: 1
+  moveSpeed: 0.75
   damage: 90
   hp: 100
   teamType: 1

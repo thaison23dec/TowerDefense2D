@@ -35,7 +35,17 @@ public class PoolAmount
 
 public enum PoolType
 {
+    //CHARACTER
     Enemy_Orc,
-    Ally_Sword
+    Ally_Sword,
+
+
+    //PROJECTILE
+    Projectile_Arrow,
+    Projectile_Bullet,
+
+
+    //VFX
+    Explosion
 }
 
