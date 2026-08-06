@@ -173,6 +173,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PoolType: 2
   team: 0
-  damage: 5
+  damage: 1
   speed: 5
   curentTarget: {fileID: 0}

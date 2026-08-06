@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PoolType: 3
   team: 0
-  damage: 20
+  damage: 1
   speed: 4
   curentTarget: {fileID: 0}
   arcHeight: 1.5

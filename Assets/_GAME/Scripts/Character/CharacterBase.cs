@@ -135,7 +135,10 @@ public class CharacterBase : UnitController
                 directionTravel.Normalize();
                 FacingCheck(targetPos);
                 rb.MovePosition(currentPos + (directionTravel * Mathf.Abs(data.MoveSpeed) * Time.deltaTime));
-                ChangeAnim("walk");
+                //ChangeAnim("walk");
+                ChangeAnimBool("walk");
+
+
             }
             else
             {
@@ -250,7 +253,7 @@ public class CharacterBase : UnitController
     public virtual void Walk()
     {
         if (IsDead) return;
-        ChangeAnim("walk");
+        ChangeAnimBool("walk");
         currentState = CHARACTER_STATE.WALK_FREE;  
     }
 
@@ -258,7 +261,8 @@ public class CharacterBase : UnitController
     {
         if (IsDead) return;
         currentState = CHARACTER_STATE.IDLE;
-        ChangeAnim("idle");
+        ChangeAnimBool("idle");
+        //ChangeAnim("idle");
         rb.velocity = Vector2.zero;
     }
 
@@ -266,7 +270,9 @@ public class CharacterBase : UnitController
     {
         IsDead = true;
         currentState = CHARACTER_STATE.DIE;
-        ChangeAnim("die");
+        animator.SetBool("idle", false);
+        animator.SetBool("walk", false);
+        ChangeAnimTrigger("die");
         Invoke("OnDespawn", 1f);
     }
 
@@ -277,6 +283,8 @@ public class CharacterBase : UnitController
         if (attackCoroutine == null)
         {
             currentState = CHARACTER_STATE.ATTACK;
+            animator.SetBool("idle", false);
+            animator.SetBool("walk", false);
             attackCoroutine = StartCoroutine(AttackCoroutine());
         }
     }
@@ -298,7 +306,7 @@ public class CharacterBase : UnitController
         {
             //rb.velocity = Vector2.zero;
 
-            ChangeAnim("attack");
+            ChangeAnimTrigger("attack");
 
             yield return new WaitForSeconds(0.5f);
             currentTarget.TakeDamage(damage);
@@ -319,7 +327,7 @@ public class CharacterBase : UnitController
         hpBar.UpdateBar(currentHp, data.Hp);
     }
 
-    public void ChangeAnim(string animName)
+    public void ChangeAnimTrigger(string animName)
     {
         //if (animName != currentAnimName)
         //    animator.ResetTrigger(animName);
@@ -331,6 +339,15 @@ public class CharacterBase : UnitController
         animator.SetTrigger(currentAnimName);
     }
 
+    public void ChangeAnimBool(string animName)
+    {
+        if (animator.GetBool(animName) == false)
+        {
+            animator.SetBool("idle", false);
+            animator.SetBool("walk", false);
+            animator.SetBool(animName, true);
+        }
+    }
 
 }
 
