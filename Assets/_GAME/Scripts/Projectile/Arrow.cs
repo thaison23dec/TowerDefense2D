@@ -11,6 +11,13 @@ public class Arrow : Projectile
         col = GetComponent<Collider2D>();
     }
 
+    public void Init(Vector3 targetPos)
+    {
+        Vector2 dir = (targetPos - transform.position).normalized;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
+    }
+
     protected override void Update()
     {
         if (curentTarget == null) return;
@@ -38,12 +45,12 @@ public class Arrow : Projectile
                 case TeamType.Ally:
                     if (target.Team == TeamType.Enemy)
                         target.TakeDamage(damage);
-                    SimplePool.Despawn(this);
+                    ObjectPoolManager.Instance.ReturnToPool(gameObject);
                     break;
                 case TeamType.Enemy:
                     if (target.Team == TeamType.Ally)
                         target.TakeDamage(damage);
-                    SimplePool.Despawn(this);
+                    ObjectPoolManager.Instance.ReturnToPool(gameObject);
                     break;
             }
         }

@@ -109,7 +109,8 @@ public class CharacterBase : UnitController
 
     public void OnDespawn()
     {
-        SimplePool.Despawn(this);
+        //SimplePool.Despawn(this);
+        ObjectPoolManager.Instance.ReturnToPool(gameObject);
     }
 
     private void DirectToTarget()

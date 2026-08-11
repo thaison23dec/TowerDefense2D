@@ -26,10 +26,12 @@ public class TowerGun : TowerShoot
         if (target == null)
             return;
 
-        Bullet projectile = SimplePool.Spawn<Bullet>(
-            PoolType.Projectile_Bullet,
-            shootPos.position,
-            Quaternion.identity);
+        //Bullet projectile = SimplePool.Spawn<Bullet>(
+        //    PoolType.Projectile_Bullet,
+        //    shootPos.position,
+        //    Quaternion.identity);
+
+        Bullet projectile = ObjectPoolManager.Instance.SpawnObject(GameManager.Instance.PrefabData.ProjectileBulletPrefab, shootPos.transform.position, Quaternion.identity);
 
         Vector3 targetPos = target.transform.position;
         projectile.Init(targetPos);

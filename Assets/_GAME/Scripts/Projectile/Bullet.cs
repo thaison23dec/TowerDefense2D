@@ -52,7 +52,7 @@ public class Bullet : Projectile
         if (progress >= 1f)
         {
             Explosion(targetPosition);
-            SimplePool.Despawn(this);
+            ObjectPoolManager.Instance.ReturnToPool(gameObject);
         }
     }
 

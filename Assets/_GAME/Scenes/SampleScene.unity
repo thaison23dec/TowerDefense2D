@@ -4480,6 +4480,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775591398}
   m_CullTransparentMesh: 1
+--- !u!1 &830644566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 830644568}
+  - component: {fileID: 830644567}
+  m_Layer: 0
+  m_Name: Pooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &830644567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830644566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f50701a62742545a1bd725cd80b30e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _addDontDestroyOnLoad: 0
+  _defaultCapacity: 10
+  _maxSize: 100
+--- !u!4 &830644568
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830644566}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.7177937, y: 0.14309238, z: -0.04613772}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &831138852
 GameObject:
   m_ObjectHideFlags: 0
@@ -5377,6 +5424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 8204230367805579204, guid: 3772c9c3bebd13745ac8d91f66858a6d, type: 3}
   Ally: {fileID: 8749801946855063621, guid: f5dbbd08cb7e3284f8774709cab1869a, type: 3}
+  PrefabData: {fileID: 11400000, guid: 3a508736f7eb2644f828eb484c467cea, type: 2}
   enemySpawner: {fileID: 1462665103}
   allySpawner: {fileID: 0}
   CurrentCoin: 0
@@ -6547,3 +6595,4 @@ SceneRoots:
   - {fileID: 397930998}
   - {fileID: 764178117}
   - {fileID: 905589570}
+  - {fileID: 830644568}

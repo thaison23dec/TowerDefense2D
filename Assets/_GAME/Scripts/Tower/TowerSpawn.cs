@@ -66,10 +66,7 @@ public class TowerSpawn : TowerBase
 
         for (int i = 0; i < patrolCells.Count; i++)
         {
-            AllyController ally = SimplePool.Spawn<AllyController>(
-                PoolType.Ally_Sword,
-                spawnPos.position,
-                Quaternion.identity);
+            AllyController ally = ObjectPoolManager.Instance.SpawnObject(GameManager.Instance.PrefabData.AllySwordPrefab, spawnPos.position, Quaternion.identity);
 
             ally.Init();
             ally.OnDead += HandleAllyDead;

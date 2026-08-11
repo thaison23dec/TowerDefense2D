@@ -6,6 +6,7 @@ public class GameManager : Singleton<GameManager>
 {
     [SerializeField] public EnemyController Enemy;
     [SerializeField] public AllyController Ally;
+    [SerializeField] public PrefabData PrefabData;
     public Transform enemySpawner;
     public Transform allySpawner;
 
@@ -26,7 +27,7 @@ public class GameManager : Singleton<GameManager>
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            EnemyController e = SimplePool.Spawn<EnemyController>(PoolType.Enemy_Orc, enemySpawner.position, enemySpawner.rotation);
+            EnemyController e = ObjectPoolManager.Instance.SpawnObject(GameManager.Instance.PrefabData.EnemyOrcPrefab, enemySpawner.transform.position, Quaternion.identity);
             e.Init();
         }
     }
