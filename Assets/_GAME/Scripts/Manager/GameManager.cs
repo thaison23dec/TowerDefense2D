@@ -2,12 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     [SerializeField] public EnemyController Enemy;
     [SerializeField] public AllyController Ally;
     public Transform enemySpawner;
     public Transform allySpawner;
+
+    public int CurrentCoin;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        CurrentCoin = 0;
+    }
 
     private void Update()
     {

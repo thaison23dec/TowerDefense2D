@@ -46,6 +46,14 @@ public enum PoolType
 
 
     //VFX
-    Explosion
+    Explosion,
+
+    //Tower
+    Tower_Spawn,
+    Tower_Archer,
+    Tower_Gun,
+
+    //BuildSpot
+    BuildSpot,
 }
 

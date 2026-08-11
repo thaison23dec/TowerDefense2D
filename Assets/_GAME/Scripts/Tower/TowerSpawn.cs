@@ -14,6 +14,32 @@ public class TowerSpawn : TowerBase
 
     private void Start()
     {
+        //patrolCells = MapManager.Instance.FindPatrolCells(
+        //    transform.position,
+        //    allyCount,
+        //    1
+        //);
+
+        //if (patrolCells == null)
+        //{
+        //    return;
+        //}
+
+
+        //SpawnAllAlly();
+    }
+
+    private void Update()
+    {
+        if (!HasAliveAlly())
+        {
+            
+        }
+    }
+
+    public override void Init()
+    {
+        base.Init();
         patrolCells = MapManager.Instance.FindPatrolCells(
             transform.position,
             allyCount,
@@ -27,14 +53,6 @@ public class TowerSpawn : TowerBase
 
 
         SpawnAllAlly();
-    }
-
-    private void Update()
-    {
-        if (!HasAliveAlly())
-        {
-            
-        }
     }
 
 
@@ -91,6 +109,17 @@ public class TowerSpawn : TowerBase
         if (allies.Count == 0)
         {
             Invoke("SpawnAllAlly", 2f);
+        }
+    }
+
+    public override void Sell()
+    {
+        base.Sell();
+        foreach(AllyController a in allies)
+        {
+            a.OnDead -= HandleAllyDead;
+            a.OnDespawn();
+
         }
     }
 }
