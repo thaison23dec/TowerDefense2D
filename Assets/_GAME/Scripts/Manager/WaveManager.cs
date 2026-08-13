@@ -4,38 +4,56 @@ using UnityEngine;
 
 public class WaveManager : Singleton<WaveManager>
 {
-    [SerializeField] List<WaveData> WaveList;
-    [SerializeField] Transform enemySpawnPos;
-    [SerializeField] int WaveAmount;
+    [SerializeField] private int WaveAmount;
     [SerializeField] private List<EnemySpawner> enemySpawnerList;
+
     public int currentWaveIndex = 0;
-    private EnemyFactory enemyFactory;
+
+    public int aliveEnemyCount;
 
     protected override void Awake()
     {
         base.Awake();
-        enemyFactory = new EnemyFactory();
         currentWaveIndex = 0;
+        aliveEnemyCount = 0;
     }
 
     public void InitWave()
     {
         currentWaveIndex++;
-        for (int i = 1; i <= WaveAmount; i++)
+
+        aliveEnemyCount = 0;
+        UIManager.Instance.HideStartWaveBtn();
+        foreach (EnemySpawner enemySpawner in enemySpawnerList)
         {
-            if(currentWaveIndex == i)
+            foreach (EnemyGroup enemyGroup in enemySpawner.enemyGroupList)
             {
-                foreach(EnemySpawner enemySpawner in enemySpawnerList)
+                if (enemyGroup.WaveIndex == currentWaveIndex)
                 {
-                    foreach(EnemyGroup enemyGroup in enemySpawner.enemyGroupList)
-                    {
-                        if(enemyGroup.WaveIndex == currentWaveIndex)
-                        {
-                            enemySpawner.SpawnEnemy(enemyGroup);
-                        }
-                    }
+                    aliveEnemyCount += enemyGroup.Quantity;
+
+                    enemySpawner.SpawnEnemy(enemyGroup);
                 }
             }
         }
+    }
+
+    public void OnEnemyDead()
+    {
+        aliveEnemyCount--;
+
+        Debug.Log($"Enemy remaining: {aliveEnemyCount}");
+
+        if (aliveEnemyCount <= 0)
+        {
+            OnWaveComplete();
+        }
+    }
+
+    private void OnWaveComplete()
+    {
+        Debug.Log($"Wave {currentWaveIndex} Complete!");
+        UIManager.Instance.ShowStartWaveBtn();
+
     }
 }

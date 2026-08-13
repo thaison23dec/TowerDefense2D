@@ -20,9 +20,9 @@ public class GameManager : Singleton<GameManager>
     public Transform allySpawner;
     public GameState CurrentState;
 
-    public event Action OnStartPrepareState;
-    public event Action OnStartBattleState;
-    public event Action OnStartEndState;
+    public event Action OnStartPrepare;
+    public event Action OnStartNewWave;
+    public event Action OnStartEnd;
 
     public int CurrentCoin;
 
@@ -46,10 +46,9 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void StartWave()
+    public void StartNewWave()
     {
         CurrentState = GameState.BattleState;
-        OnStartPrepareState();
         WaveManager.Instance.InitWave();
     }
 }

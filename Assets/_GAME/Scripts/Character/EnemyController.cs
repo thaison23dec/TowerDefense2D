@@ -48,6 +48,12 @@ public class EnemyController : CharacterBase
         }
     }
 
+    protected override void Die()
+    {
+        base.Die();
+        WaveManager.Instance.OnEnemyDead();
+    }
+
     public void WaypointIndexCheck()
     {
         if (currentTarget == null)

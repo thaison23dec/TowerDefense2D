@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class UIManager : Singleton<UIManager>
 {
+    [SerializeField] private Button startWaveBtn;
+
     [SerializeField] private GameObject towePanel;
     [SerializeField] private GameObject buildSpotPanel;
 
@@ -44,6 +46,16 @@ public class UIManager : Singleton<UIManager>
                 HideAllUI();
             }
         }
+    }
+
+    public void ShowStartWaveBtn()
+    {
+        startWaveBtn.gameObject.SetActive(true);
+    }
+
+    public void HideStartWaveBtn()
+    {
+        startWaveBtn.gameObject.SetActive(false);
     }
 
     public void ShowBuildSpotPanel(BuildSpot buildSpot)

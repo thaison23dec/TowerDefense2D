@@ -61,7 +61,7 @@ public class CharacterBase : MonoBehaviour
     protected virtual void FixedUpdate()
     {
         ProcessState();
-        if(currentHp <= 0)
+        if(currentHp <= 0 && !IsDead)
         {
             Die();
         }
@@ -269,6 +269,10 @@ public class CharacterBase : MonoBehaviour
 
     protected virtual void Die()
     {
+        if (IsDead)
+        {
+            return;
+        }
         IsDead = true;
         currentState = CHARACTER_STATE.DIE;
         animator.SetBool("idle", false);
