@@ -2,8 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EnemyType
+{
+    Slime,
+    Orc,
+
+}
 public class EnemyController : CharacterBase
 {
+    public EnemyType Type;
     public int currentWpTargetIndx = 0;
 
     protected override void Awake()

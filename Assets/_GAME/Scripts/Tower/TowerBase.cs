@@ -3,8 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+public enum TowerType
+{
+    Archer,
+    Gun,
+    Spawn,
+}
+
 public class TowerBase : UnitController
 {
+    public TowerType Type;
+
     protected virtual void Start()
     {
         Init();
@@ -32,11 +41,8 @@ public class TowerBase : UnitController
 
     public virtual void Sell()
     {
-        SimplePool.Spawn<BuildSpot>(
-                PoolType.BuildSpot,
-                transform.position,
-                Quaternion.identity);
-        SimplePool.Despawn(this);
+        Instantiate(GameManager.Instance.PrefabData.BuildSpot, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     private void OnMouseDown()

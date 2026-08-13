@@ -66,32 +66,19 @@ public class UIManager : Singleton<UIManager>
 
     public void BuyTowerSpawn()
     {
-        currentBuildSpot.gameObject.SetActive(false);
-        TowerSpawn tower = SimplePool.Spawn<TowerSpawn>(
-                PoolType.Tower_Spawn,
-                currentBuildSpot.transform.position,
-                Quaternion.identity);
-        tower.Init();
+        currentBuildSpot.BuidTower(GameManager.Instance.PrefabData.TowerSpawn);
         HideBuildSpotPanel();
     }
 
     public void BuyTowerArcher()
     {
-        currentBuildSpot.gameObject.SetActive(false);
-        SimplePool.Spawn<TowerArcher>(
-                PoolType.Tower_Archer,
-                currentBuildSpot.transform.position,
-                Quaternion.identity);
+        currentBuildSpot.BuidTower(GameManager.Instance.PrefabData.TowerArcher);
         HideBuildSpotPanel();
     }
 
     public void BuyTowerGun()
     {
-        currentBuildSpot.gameObject.SetActive(false);
-        SimplePool.Spawn<TowerGun>(
-                PoolType.Tower_Gun,
-                currentBuildSpot.transform.position,
-                Quaternion.identity);
+        currentBuildSpot.BuidTower(GameManager.Instance.PrefabData.TowerGun);
         HideBuildSpotPanel();
     }
 

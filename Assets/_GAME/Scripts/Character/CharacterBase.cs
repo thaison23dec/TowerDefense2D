@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterBase : UnitController
+public class CharacterBase : MonoBehaviour
 {
     [SerializeField] public CharacterData data;
     public Animator animator;

@@ -5,9 +5,42 @@ using UnityEngine;
 [CreateAssetMenu]
 public class PrefabData : ScriptableObject
 {
+    [Header("Enemy Prefabs")]
+    public EnemyController EnemySlimePrefab;
     public EnemyController EnemyOrcPrefab;
+    [Space(20)]
+
+
+    [Header("Ally Prefabs")]
     public AllyController AllySwordPrefab;
+
+
+    [Header("Projectile Prefabs")]
     public Arrow ProjectileArrowPrefab;
     public Bullet ProjectileBulletPrefab;
+    [Space(20)]
+
     public GameObject explosion;
+
+
+    [Header("Tower Prefabs")]
+    public TowerArcher TowerArcher;
+    public TowerSpawn TowerSpawn;
+    public TowerGun TowerGun;
+    [Space(20)]
+
+    [Header("BuildSpot Prefabs")]
+    public BuildSpot BuildSpot;
+
+    public EnemyController GetEnemy(EnemyType enemyType)
+    {
+        switch (enemyType)
+        {
+            case EnemyType.Slime:
+                return EnemySlimePrefab;
+            case EnemyType.Orc:
+                return EnemyOrcPrefab;       
+        }
+        return null;
+    }
 }

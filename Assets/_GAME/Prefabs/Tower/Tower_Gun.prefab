@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PoolType: 7
+  Type: 1
   shootPos: {fileID: 2752506907618095437}
   projectile: {fileID: 7233129558679760992, guid: b8820014f53309a44b5a255634a7bd4e, type: 3}
   shootRange: 4
@@ -200,7 +201,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
