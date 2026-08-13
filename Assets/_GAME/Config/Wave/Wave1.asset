@@ -16,3 +16,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e56902bed2543ee4cbc7a2ed63857017, type: 2}
   - {fileID: 11400000, guid: f89bea832ca66ea4099649c55fd92823, type: 2}
   waveDuration: 15
+  SpawnerList:
+  - {fileID: 0}
+  - {fileID: 0}

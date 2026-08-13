@@ -12,11 +12,12 @@ public class EnemyController : CharacterBase
 {
     public EnemyType Type;
     public int currentWpTargetIndx = 0;
+    public WaypointPath waypointPath;
 
     protected override void Awake()
     {
         base.Awake();
-        WaypointIndexCheck();        
+        //WaypointIndexCheck();        
     }
 
 
@@ -43,7 +44,7 @@ public class EnemyController : CharacterBase
         base.Walk();
         if (currentTarget == null)
         {
-            MoveToPosition(WaypointPath.Instance.WaypointList[currentWpTargetIndx].position);
+            MoveToPosition(waypointPath.WaypointList[currentWpTargetIndx].position);
         }
     }
 
@@ -51,9 +52,9 @@ public class EnemyController : CharacterBase
     {
         if (currentTarget == null)
         {
-            if (Vector3.Distance(transform.position, WaypointPath.Instance.WaypointList[currentWpTargetIndx].position) < 0.1f)
+            if (Vector3.Distance(transform.position, waypointPath.WaypointList[currentWpTargetIndx].position) < 0.1f)
             {
-                if (currentWpTargetIndx < WaypointPath.Instance.WaypointList.Length - 1)
+                if (currentWpTargetIndx < waypointPath.WaypointList.Length - 1)
                 {
                     currentWpTargetIndx++;
                 }

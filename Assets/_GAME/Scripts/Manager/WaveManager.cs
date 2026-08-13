@@ -6,6 +6,8 @@ public class WaveManager : Singleton<WaveManager>
 {
     [SerializeField] List<WaveData> WaveList;
     [SerializeField] Transform enemySpawnPos;
+    [SerializeField] int WaveAmount;
+    [SerializeField] private List<EnemySpawner> enemySpawnerList;
     public int currentWaveIndex = 0;
     private EnemyFactory enemyFactory;
 
@@ -18,27 +20,22 @@ public class WaveManager : Singleton<WaveManager>
 
     public void InitWave()
     {
-        for (int i = 0; i < WaveList.Count; i++)
+        currentWaveIndex++;
+        for (int i = 1; i <= WaveAmount; i++)
         {
             if(currentWaveIndex == i)
             {
-                StartCoroutine(SpawnWaveCoroutine(WaveList[currentWaveIndex]));
+                foreach(EnemySpawner enemySpawner in enemySpawnerList)
+                {
+                    foreach(EnemyGroup enemyGroup in enemySpawner.enemyGroupList)
+                    {
+                        if(enemyGroup.WaveIndex == currentWaveIndex)
+                        {
+                            enemySpawner.SpawnEnemy(enemyGroup);
+                        }
+                    }
+                }
             }
-        }
-    }
-
-    IEnumerator SpawnWaveCoroutine(WaveData wave)
-    {
-        currentWaveIndex++;
-        foreach (EnemyGroupData enemyGroupData in wave.GroupList)
-        {
-            for(int i = 0; i < enemyGroupData.GroupQuanity; i++)
-            {
-                yield return new WaitForSeconds(0.75f);
-                EnemyController e = enemyFactory.Create(enemyGroupData.enemyType, enemySpawnPos.position);
-                e.Init();
-            }
-            
         }
     }
 }
