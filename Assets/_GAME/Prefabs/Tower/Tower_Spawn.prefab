@@ -80,8 +80,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PoolType: 5
   Type: 2
-  allyPrefab: {fileID: 0}
+  Level: 0
+  towerData: {fileID: 11400000, guid: d40b40369f3a4a64ab911b899bd030f1, type: 2}
+  BuyPrice: 0
+  SellPrice: 0
+  UpgradePrice: 0
   spawnPos: {fileID: 3082919741183260246}
+  TowerLevel: 0
   allyCount: 3
 --- !u!61 &107511584504536221
 BoxCollider2D:

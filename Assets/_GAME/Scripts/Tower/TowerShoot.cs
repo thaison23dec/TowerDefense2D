@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TowerShoot : TowerBase
 {
+    private TowerShootData towerShootData;
     [SerializeField] protected Transform shootPos;
-    [SerializeField] protected Projectile projectile;
-    [SerializeField] protected float shootRange;
+    
     protected List<Vector3> targetList;
     public LayerMask targetMask;
     public float countDownTime;
@@ -14,6 +14,7 @@ public class TowerShoot : TowerBase
 
     protected virtual void Awake()
     {
+        towerShootData = towerData as TowerShootData;
         timer = countDownTime;
         targetList = new List<Vector3>();
     }
@@ -44,13 +45,13 @@ public class TowerShoot : TowerBase
     protected virtual bool IsTrackTarget()
     {
         bool isTrack = false;
-        Collider2D[] targetsCol = Physics2D.OverlapCircleAll(transform.position, shootRange, targetMask);
+        Collider2D[] targetsCol = Physics2D.OverlapCircleAll(transform.position, towerShootData.shootRange, targetMask);
 
         if (targetsCol.Length > 0)
         {
             for (int i = 0; i < targetsCol.Length; i++)
             {
-                if (Vector2.Distance(transform.position, targetsCol[i].transform.position) < shootRange)
+                if (Vector2.Distance(transform.position, targetsCol[i].transform.position) < towerShootData.shootRange)
                 {
                     isTrack = true;
                     return isTrack;
@@ -80,7 +81,7 @@ public class TowerShoot : TowerBase
     {
         CharacterBase target = null;
 
-        Collider2D[] targetCol = Physics2D.OverlapCircleAll(transform.position, shootRange, targetMask);
+        Collider2D[] targetCol = Physics2D.OverlapCircleAll(transform.position, towerShootData.shootRange, targetMask);
 
         if (targetCol.Length > 0)
         {
@@ -100,7 +101,7 @@ public class TowerShoot : TowerBase
 
         if (target != null)
         {
-            if (Vector3.Distance(target.transform.position, transform.position) > shootRange)
+            if (Vector3.Distance(target.transform.position, transform.position) > towerShootData.shootRange)
             {
                 target = null;
             }

@@ -4,30 +4,15 @@ using UnityEngine;
 
 public class TowerSpawn : TowerBase
 {
-    [SerializeField] private AllyController allyPrefab;
     [SerializeField] private Transform spawnPos;
+    [SerializeField] public int TowerLevel;
+    private TowerSpawnData towerSpawnData;
 
     [SerializeField] private int allyCount = 3;
     private List<Vector3Int> patrolCells;
     private List<AllyController> allies = new List<AllyController>();
 
 
-    private void Start()
-    {
-        //patrolCells = MapManager.Instance.FindPatrolCells(
-        //    transform.position,
-        //    allyCount,
-        //    1
-        //);
-
-        //if (patrolCells == null)
-        //{
-        //    return;
-        //}
-
-
-        //SpawnAllAlly();
-    }
 
     private void Update()
     {
@@ -40,6 +25,7 @@ public class TowerSpawn : TowerBase
     public override void Init()
     {
         base.Init();
+        towerSpawnData = towerData as TowerSpawnData;
         patrolCells = MapManager.Instance.FindPatrolCells(
             transform.position,
             allyCount,
@@ -66,7 +52,7 @@ public class TowerSpawn : TowerBase
 
         for (int i = 0; i < patrolCells.Count; i++)
         {
-            AllyController ally = ObjectPoolManager.Instance.SpawnObject(GameManager.Instance.PrefabData.AllySwordPrefab, spawnPos.position, Quaternion.identity);
+            AllyController ally = ObjectPoolManager.Instance.SpawnObject(towerSpawnData.allyPrefab, spawnPos.position, Quaternion.identity);
 
             ally.Init();
             ally.OnDead += HandleAllyDead;

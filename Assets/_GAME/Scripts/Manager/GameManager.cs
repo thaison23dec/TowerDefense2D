@@ -30,7 +30,6 @@ public class GameManager : Singleton<GameManager>
     {
         base.Awake();
         CurrentState = GameState.PrepareState;
-        CurrentCoin = 0;
         enemyFactory = new EnemyFactory();
     }
 
@@ -50,5 +49,20 @@ public class GameManager : Singleton<GameManager>
     {
         CurrentState = GameState.BattleState;
         WaveManager.Instance.InitWave();
+    }
+
+    public void IncreaseCoin(int coin)
+    {
+        CurrentCoin += coin;
+    }
+
+    public bool DecreaseCoin(int coin)
+    {
+        if (CurrentCoin - coin < 0)
+        {
+            return false;
+        }
+        CurrentCoin -= coin;
+        return true;
     }
 }

@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System;
 
 public class UIManager : Singleton<UIManager>
 {
+    [SerializeField] private Text currentCoinText;
+
     [SerializeField] private Button startWaveBtn;
 
     [SerializeField] private GameObject towePanel;
@@ -19,6 +22,8 @@ public class UIManager : Singleton<UIManager>
     private TowerBase currentTower;
     private BuildSpot currentBuildSpot;
 
+    public event Action OnCoinUpdate;
+
     protected override void Awake()
     {
         base.Awake();
@@ -27,6 +32,7 @@ public class UIManager : Singleton<UIManager>
     private void Start()
     {
         towePanel.SetActive(false);
+        TriggerCoinUpdate();
     }
 
     private void Update()
@@ -46,6 +52,27 @@ public class UIManager : Singleton<UIManager>
                 HideAllUI();
             }
         }
+    }
+
+    private void OnEnable()
+    {
+        OnCoinUpdate += UpdateCoinText;
+    }
+
+    
+    private void OnDisable()
+    {
+        OnCoinUpdate -= UpdateCoinText;
+    }
+
+    public void UpdateCoinText()
+    {
+        currentCoinText.text = GameManager.Instance.CurrentCoin.ToString() + "$";
+    }
+
+    public void TriggerCoinUpdate()
+    {
+        OnCoinUpdate?.Invoke();
     }
 
     public void ShowStartWaveBtn()

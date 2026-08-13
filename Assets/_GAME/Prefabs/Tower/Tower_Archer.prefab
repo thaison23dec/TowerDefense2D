@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 741271990008440573}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -104,7 +104,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 500
-  m_Sprite: {fileID: 4862126986275001125, guid: 198ef25378381364cb81620f048f4ead, type: 3}
+  m_Sprite: {fileID: 1772785795, guid: bc14e094beeeea140bd43ebfb1e57695, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -164,9 +164,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PoolType: 6
   Type: 0
+  Level: 0
+  towerData: {fileID: 11400000, guid: 2d8518b9483ff464099e416572bdd2ca, type: 2}
+  BuyPrice: 0
+  SellPrice: 0
+  UpgradePrice: 0
   shootPos: {fileID: 7872566034071154987}
-  projectile: {fileID: 2403173786753717853, guid: e5a83cfc9df1ffa4aae96ca8a9804b83, type: 3}
-  shootRange: 6
   targetMask:
     serializedVersion: 2
     m_Bits: 128
@@ -204,7 +207,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
