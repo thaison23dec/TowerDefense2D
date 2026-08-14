@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 3253530587514153959}
   - component: {fileID: 5937209259150235011}
   m_Layer: 8
-  m_Name: Tower_Archer
+  m_Name: Tower_Archer 1
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,9 +166,10 @@ MonoBehaviour:
   Type: 0
   Level: 0
   towerData: {fileID: 11400000, guid: 2d8518b9483ff464099e416572bdd2ca, type: 2}
-  BuyPrice: 0
-  SellPrice: 0
-  UpgradePrice: 0
+  upgradedTower: {fileID: 3253530587514153959, guid: 6a19e5cf6232b3b4e969d09a669781f4, type: 3}
+  BuyPrice: 70
+  SellPrice: 50
+  UpgradePrice: 50
   shootPos: {fileID: 7872566034071154987}
   targetMask:
     serializedVersion: 2

@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 7867036119234225683}
   - component: {fileID: 4035321135020760049}
   m_Layer: 8
-  m_Name: Tower_Gun
+  m_Name: Tower_Gun 1
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,9 +166,10 @@ MonoBehaviour:
   Type: 1
   Level: 0
   towerData: {fileID: 11400000, guid: 17a48dec25c172641bd4a00bf00ff331, type: 2}
-  BuyPrice: 0
-  SellPrice: 0
-  UpgradePrice: 0
+  upgradedTower: {fileID: 7867036119234225683, guid: c60d0478e3c4fb64aa21499c649f5f59, type: 3}
+  BuyPrice: 120
+  SellPrice: 100
+  UpgradePrice: 80
   shootPos: {fileID: 2752506907618095437}
   targetMask:
     serializedVersion: 2

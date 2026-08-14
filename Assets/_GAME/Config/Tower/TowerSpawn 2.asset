@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9131743f24618364f98c969ed76c1c11, type: 3}
-  m_Name: TowerSpawn
+  m_Name: TowerSpawn 2
   m_EditorClassIdentifier: 
-  BuyPrice: 10
-  SellPrice: 5
+  BuyPrice: 120
+  SellPrice: 100
   UpgradePrice: 0
   Level: 1
   allyPrefab: {fileID: 6772872315995361149, guid: c8f1cbe2bf3546f48bb2f160783887eb, type: 3}

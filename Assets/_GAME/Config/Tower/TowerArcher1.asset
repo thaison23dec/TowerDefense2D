@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48037d419e162e741a63c5eccc7a5505, type: 3}
   m_Name: TowerArcher1
   m_EditorClassIdentifier: 
-  BuyPrice: 10
-  SellPrice: 5
-  UpgradePrice: 0
+  BuyPrice: 70
+  SellPrice: 50
+  UpgradePrice: 50
   Level: 1
-  projectile: {fileID: 2403173786753717853, guid: e5a83cfc9df1ffa4aae96ca8a9804b83, type: 3}
+  projectile: {fileID: 2403173786753717853, guid: 5c3ded7e7356e5e4eb41983995266331, type: 3}
   shootRange: 3

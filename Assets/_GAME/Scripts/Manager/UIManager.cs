@@ -18,6 +18,14 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private Button buyTowerArcherBtn;
     [SerializeField] private Button buyTowerGunBtn;
     [SerializeField] private Button sellTowerBtn;
+    [SerializeField] private Button upgradeTowerBtn;
+
+    [SerializeField] private Text buyTowerSpawnPriceText;
+    [SerializeField] private Text buyTowerArcherPriceText;
+    [SerializeField] private Text buyTowerGunPriceText;
+
+    [SerializeField] private Text upgradeTowerPriceText;
+    [SerializeField] private Text sellTowerPriceText;
 
     private TowerBase currentTower;
     private BuildSpot currentBuildSpot;
@@ -33,6 +41,9 @@ public class UIManager : Singleton<UIManager>
     {
         towePanel.SetActive(false);
         TriggerCoinUpdate();
+        buyTowerSpawnPriceText.text = GameManager.Instance.PrefabData.TowerSpawn.BuyPrice.ToString() + "$";
+        buyTowerArcherPriceText.text = GameManager.Instance.PrefabData.TowerArcher.BuyPrice.ToString() + "$";
+        buyTowerGunPriceText.text = GameManager.Instance.PrefabData.TowerGun.BuyPrice.ToString() + "$";
     }
 
     private void Update()
@@ -126,6 +137,9 @@ public class UIManager : Singleton<UIManager>
         currentTower = tower;
         HideBuildSpotPanel();
         towePanel.SetActive(true);
+
+        upgradeTowerPriceText.text = tower.UpgradePrice.ToString() + "$";
+        sellTowerPriceText.text = tower.SellPrice.ToString() + "$";
 
         Vector3 screenPos =
             Camera.main.WorldToScreenPoint(tower.transform.position);

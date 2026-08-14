@@ -21,6 +21,7 @@ public class TowerBase : UnitController
     public TowerType Type;
     public TowerLevel Level;
     [SerializeField] protected TowerData towerData;
+    [SerializeField] protected TowerBase upgradedTower;
     public int BuyPrice;
     public int SellPrice;
     public int UpgradePrice;
@@ -52,11 +53,15 @@ public class TowerBase : UnitController
 
     }
 
-    public void Upgrade()
+    public virtual void Upgrade()
     {
         Debug.Log("Upgrade " + name);
-        GameManager.Instance.DecreaseCoin(SellPrice);
-        Destroy(gameObject);
+        if (GameManager.Instance.DecreaseCoin(BuyPrice) && upgradedTower != null)
+        {
+            UIManager.Instance.TriggerCoinUpdate();
+            Instantiate(upgradedTower, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 
     public virtual void Sell()

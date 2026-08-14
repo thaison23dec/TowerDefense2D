@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TowerShoot : TowerBase
 {
-    private TowerShootData towerShootData;
+    protected TowerShootData towerShootData;
     [SerializeField] protected Transform shootPos;
     
     protected List<Vector3> targetList;

@@ -105,4 +105,18 @@ public class TowerSpawn : TowerBase
 
         }
     }
+
+    public override void Upgrade()
+    {
+        base.Upgrade();
+        if (GameManager.Instance.DecreaseCoin(BuyPrice) && upgradedTower != null)
+        {
+            foreach (AllyController a in allies)
+            {
+                a.OnDead -= HandleAllyDead;
+                a.OnDespawn();
+
+            }
+        }
+    }
 }

@@ -32,7 +32,7 @@ public class TowerArcher : TowerShoot
         //    shootPos.position,
         //    Quaternion.identity);
 
-        Arrow projectile = ObjectPoolManager.Instance.SpawnObject(GameManager.Instance.PrefabData.ProjectileArrowPrefab, shootPos.position, Quaternion.identity);
+        Arrow projectile = ObjectPoolManager.Instance.SpawnObject(towerShootData.projectile as Arrow, shootPos.position, Quaternion.identity);
 
         Vector3 targetPos = target.transform.position;
         projectile.curentTarget = target.transform;

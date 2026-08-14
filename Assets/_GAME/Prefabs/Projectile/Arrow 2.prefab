@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1506916521567179115}
   - component: {fileID: 2403173786753717853}
   m_Layer: 0
-  m_Name: Arrow
+  m_Name: Arrow 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 600
-  m_Sprite: {fileID: -8674848412417767339, guid: 6e139dca8bd27004fb51b9c5e6e80cc8, type: 3}
+  m_Sprite: {fileID: 7164928770971560299, guid: 4e0cf2b282c8a4e46bc992742e35fc48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,8 +122,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.29527265}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.14285715, y: 0.71428573}
+    pivot: {x: 0.53571427, y: 0}
+    oldSize: {x: 0.14, y: 0.4}
     newSize: {x: 0.14285715, y: 0.71428573}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -175,4 +175,5 @@ MonoBehaviour:
   team: 0
   damage: 20
   speed: 5
+  data: {fileID: 11400000, guid: 54019f13509bcd040977e30e0da313ea, type: 2}
   curentTarget: {fileID: 0}

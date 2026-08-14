@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8242212255537877867}
   - component: {fileID: 8921742541121496504}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Bullet 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,6 +103,7 @@ MonoBehaviour:
   team: 0
   damage: 30
   speed: 4
+  data: {fileID: 11400000, guid: 2b20cd825f9400e41b4e9e85d5338c0d, type: 2}
   curentTarget: {fileID: 0}
   arcHeight: 1.5
   targetMask:

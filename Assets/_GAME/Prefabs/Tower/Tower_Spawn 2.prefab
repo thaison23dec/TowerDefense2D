@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 3023228072396917115}
   - component: {fileID: 107511584504536221}
   m_Layer: 8
-  m_Name: Tower_Spawn
+  m_Name: Tower_Spawn 2
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,9 +81,10 @@ MonoBehaviour:
   PoolType: 5
   Type: 2
   Level: 0
-  towerData: {fileID: 11400000, guid: d40b40369f3a4a64ab911b899bd030f1, type: 2}
-  BuyPrice: 0
-  SellPrice: 0
+  towerData: {fileID: 11400000, guid: 40d096295bbc3e6419906e47edcad7e0, type: 2}
+  upgradedTower: {fileID: 0}
+  BuyPrice: 120
+  SellPrice: 100
   UpgradePrice: 0
   spawnPos: {fileID: 3082919741183260246}
   TowerLevel: 0

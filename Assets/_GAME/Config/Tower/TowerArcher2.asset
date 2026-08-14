@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48037d419e162e741a63c5eccc7a5505, type: 3}
-  m_Name: TowerGun 1
+  m_Name: TowerArcher2
   m_EditorClassIdentifier: 
-  BuyPrice: 120
-  SellPrice: 100
-  UpgradePrice: 80
-  Level: 1
-  projectile: {fileID: 7233129558679760992, guid: b8820014f53309a44b5a255634a7bd4e, type: 3}
+  BuyPrice: 80
+  SellPrice: 60
+  UpgradePrice: 0
+  Level: 2
+  projectile: {fileID: 2403173786753717853, guid: e5a83cfc9df1ffa4aae96ca8a9804b83, type: 3}
   shootRange: 3

@@ -20,24 +20,24 @@ public class BuildSpot : UnitController
                 if (GameManager.Instance.DecreaseCoin(GameManager.Instance.PrefabData.TowerArcher.BuyPrice))
                 {
                     UIManager.Instance.TriggerCoinUpdate();
-                    gameObject.SetActive(false);
                     Instantiate(GameManager.Instance.PrefabData.TowerArcher, transform.position, Quaternion.identity);
+                    Destroy(gameObject);
                 }
                 break;
             case TowerType.Gun:
                 if (GameManager.Instance.DecreaseCoin(GameManager.Instance.PrefabData.TowerGun.BuyPrice))
                 {
                     UIManager.Instance.TriggerCoinUpdate();
-                    gameObject.SetActive(false);
                     Instantiate(GameManager.Instance.PrefabData.TowerGun, transform.position, Quaternion.identity);
+                    Destroy(gameObject);
                 }
                 break;
             case TowerType.Spawn:
                 if (GameManager.Instance.DecreaseCoin(GameManager.Instance.PrefabData.TowerSpawn.BuyPrice))
                 {
                     UIManager.Instance.TriggerCoinUpdate();
-                    gameObject.SetActive(false);
                     Instantiate(GameManager.Instance.PrefabData.TowerSpawn, transform.position, Quaternion.identity).Init();
+                    Destroy(gameObject);
                 }
                 break;
         }
