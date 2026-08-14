@@ -19,8 +19,7 @@ public class PrefabData : ScriptableObject
     public Arrow ProjectileArrowPrefab;
     public Bullet ProjectileBulletPrefab;
     [Space(20)]
-
-    public GameObject explosion;
+    
 
 
     [Header("Tower Prefabs")]
@@ -29,8 +28,14 @@ public class PrefabData : ScriptableObject
     public TowerGun TowerGun;
     [Space(20)]
 
+
     [Header("BuildSpot Prefabs")]
     public BuildSpot BuildSpot;
+    [Space(20)]
+
+
+    [Header("VFX Prefabs")]
+    public VFXExplosion VFXExplosion;
 
     public EnemyController GetEnemy(EnemyType enemyType)
     {

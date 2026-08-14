@@ -17,8 +17,8 @@ MonoBehaviour:
   AllySwordPrefab: {fileID: 8749801946855063621, guid: f5dbbd08cb7e3284f8774709cab1869a, type: 3}
   ProjectileArrowPrefab: {fileID: 2403173786753717853, guid: e5a83cfc9df1ffa4aae96ca8a9804b83, type: 3}
   ProjectileBulletPrefab: {fileID: 7233129558679760992, guid: b8820014f53309a44b5a255634a7bd4e, type: 3}
-  explosion: {fileID: 0}
   TowerArcher: {fileID: 3253530587514153959, guid: 47690a5ec4a187848af19d57ad07cf4e, type: 3}
   TowerSpawn: {fileID: 3023228072396917115, guid: fc6ebfde4e213264a808e286d296e872, type: 3}
   TowerGun: {fileID: 7867036119234225683, guid: b3804a163033af347a1fd6cd98d29cf0, type: 3}
   BuildSpot: {fileID: 760351234198037445, guid: 276008bf27552b04b832f23f72f3dc3c, type: 3}
+  VFXExplosion: {fileID: -9044813499803831542, guid: 2442b16a613c40848bc61fe0718336e1, type: 3}

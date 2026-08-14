@@ -61,10 +61,7 @@ public class Bullet : Projectile
     {
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(explodePos, 0.75f, targetMask);
 
-        SimplePool.Spawn<VFXExplosion>(
-            PoolType.Explosion,
-            explodePos,
-            Quaternion.identity);
+        ObjectPoolManager.Instance.SpawnObject(GameManager.Instance.PrefabData.VFXExplosion, explodePos, Quaternion.identity);
 
         foreach (Collider2D hit in hitColliders)
         {

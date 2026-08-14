@@ -23,6 +23,6 @@ public class VFXExplosion : UnitController
     private IEnumerator AutoDespawn()
     {
         yield return new WaitForSeconds(lifeTime);
-        SimplePool.Despawn(this);
+        ObjectPoolManager.Instance.ReturnToPool(gameObject);
     }
 }

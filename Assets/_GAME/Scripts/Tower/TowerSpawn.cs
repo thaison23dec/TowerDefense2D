@@ -91,7 +91,7 @@ public class TowerSpawn : TowerBase
 
         if (allies.Count == 0)
         {
-            Invoke("SpawnAllAlly", 2f);
+            Invoke("SpawnAllAlly", 7.5f);
         }
     }
 
