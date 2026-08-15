@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using System;
 
 public class UIManager : Singleton<UIManager>
-{
+{   
     [SerializeField] private GameObject WinPanel;
     [SerializeField] private GameObject LosePanel;
 

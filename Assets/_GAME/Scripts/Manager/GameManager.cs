@@ -19,6 +19,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] public AllyController Ally;
     [SerializeField] public PrefabData PrefabData;
     [SerializeField] public MainTower mainTower;
+    [SerializeField] private int currentGameLevel;
     private EnemyFactory enemyFactory;
     public Transform enemySpawner;
     public Transform allySpawner;
@@ -87,7 +88,17 @@ public class GameManager : Singleton<GameManager>
         {
             Time.timeScale = 0f;
             UIManager.Instance.ShowWinPanel();
+            LevelManager.Instance.CompleteLevel(currentGameLevel);
+            if (!LevelManager.Instance.IsCompleted(currentGameLevel += 1))
+            {
+                LevelManager.Instance.UnlockLevel(currentGameLevel + 1);
+            }
         }
+    }
+
+    public void SetCurrentGameLevel(int levelToSet)
+    {
+        currentGameLevel = levelToSet;
     }
 
     public void TryAgain()
