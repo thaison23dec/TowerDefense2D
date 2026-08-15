@@ -121,7 +121,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Demon_A_Death_0
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 40
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeec000efa7145e46887a9e833394b85
+      internalID: -1979795568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_A_Death_1
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 41
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 305687402cb49774eafb4d1db44f5666
+      internalID: 2066723848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_A_Death_3
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 40
+        width: 35
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6572d168c9824746ac4b4a15d27073d
+      internalID: 1561545697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Demon_A_Death_6
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 40
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39294acb0ca0d4b42bbe2bb72ec7de1b
+      internalID: -617177657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +216,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Demon_A_Death_0: -1979795568
+      Demon_A_Death_1: 2066723848
+      Demon_A_Death_2: 1985550501
+      Demon_A_Death_3: 1561545697
+      Demon_A_Death_4: 999680437
+      Demon_A_Death_5: 1125214672
+      Demon_A_Death_6: -617177657
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

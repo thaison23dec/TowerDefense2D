@@ -7,7 +7,12 @@ using System;
 
 public class UIManager : Singleton<UIManager>
 {
+    [SerializeField] private GameObject WinPanel;
+    [SerializeField] private GameObject LosePanel;
+
+    [SerializeField] private Text mainTowerHpText;
     [SerializeField] private Text currentCoinText;
+    [SerializeField] private Text waveIndexText;
 
     [SerializeField] private Button startWaveBtn;
 
@@ -19,6 +24,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private Button buyTowerGunBtn;
     [SerializeField] private Button sellTowerBtn;
     [SerializeField] private Button upgradeTowerBtn;
+
 
     [SerializeField] private Text buyTowerSpawnPriceText;
     [SerializeField] private Text buyTowerArcherPriceText;
@@ -76,9 +82,29 @@ public class UIManager : Singleton<UIManager>
         OnCoinUpdate -= UpdateCoinText;
     }
 
+    public void ShowWinPanel()
+    {
+        WinPanel.SetActive(true);
+    }
+
+    public void ShowLosePanel()
+    {
+        LosePanel.SetActive(true);
+    }
+
+    public void UpdateMainTowerHpText(float currentHp)
+    {
+        mainTowerHpText.text = currentHp.ToString() + "HP";
+    }
+
     public void UpdateCoinText()
     {
         currentCoinText.text = GameManager.Instance.CurrentCoin.ToString() + "$";
+    }
+
+    public void UpdateWaveIndexText(int currentWaveIndex, int waveAmount)
+    {
+        waveIndexText.text = currentWaveIndex.ToString() + "/" + waveAmount.ToString();
     }
 
     public void TriggerCoinUpdate()

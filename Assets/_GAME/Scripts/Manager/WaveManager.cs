@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaveManager : Singleton<WaveManager>
 {
-    [SerializeField] private int WaveAmount;
+    [SerializeField] public int WaveAmount;
     [SerializeField] private List<EnemySpawner> enemySpawnerList;
 
     public int currentWaveIndex = 0;
@@ -16,12 +16,13 @@ public class WaveManager : Singleton<WaveManager>
         base.Awake();
         currentWaveIndex = 0;
         aliveEnemyCount = 0;
+        UIManager.Instance.UpdateWaveIndexText(currentWaveIndex, WaveAmount);
     }
 
     public void InitWave()
     {
         currentWaveIndex++;
-
+        UIManager.Instance.UpdateWaveIndexText(currentWaveIndex, WaveAmount);
         aliveEnemyCount = 0;
         UIManager.Instance.HideStartWaveBtn();
         foreach (EnemySpawner enemySpawner in enemySpawnerList)
@@ -52,7 +53,12 @@ public class WaveManager : Singleton<WaveManager>
 
     private void OnWaveComplete()
     {
-        Debug.Log($"Wave {currentWaveIndex} Complete!");
+        Debug.Log($"Wave {currentWaveIndex} Complete!");      
+        if(currentWaveIndex == WaveAmount)
+        {
+            GameManager.Instance.CurrentState = GameState.Win;
+            GameManager.Instance.EndGame();
+        }
         UIManager.Instance.ShowStartWaveBtn();
 
     }

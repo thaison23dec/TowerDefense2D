@@ -60,6 +60,7 @@ public class CharacterBase : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
+        IsTrackTarget();
         ProcessState();
         if(currentHp <= 0 && !IsDead)
         {
@@ -95,7 +96,7 @@ public class CharacterBase : MonoBehaviour
                 break;
 
             case CHARACTER_STATE.ATTACK:
-                if (!IsTrackTarget())
+                if (currentTarget == null)
                 {
                     Walk();
                 }
@@ -107,7 +108,7 @@ public class CharacterBase : MonoBehaviour
         }
     }
 
-    public void OnDespawn()
+    public virtual void OnDespawn()
     {
         //SimplePool.Despawn(this);
         ObjectPoolManager.Instance.ReturnToPool(gameObject);

@@ -33,7 +33,7 @@ public class AllyController : CharacterBase
     public override void Walk()
     {
         base.Walk();
-        if(currentTarget == null && patrolPos != null)
+        if(currentTarget == null && patrolPos != null && !IsDead)
         {
             MoveToPosition(patrolPos);
             if(Vector3.Distance(transform.position, patrolPos) < 0.1f)

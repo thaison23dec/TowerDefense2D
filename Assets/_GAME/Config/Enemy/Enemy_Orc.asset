@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5b60ce8088c9524fa74a2a711f8f99c, type: 3}
   m_Name: Enemy_Orc
   m_EditorClassIdentifier: 
-  sightRange: 3
+  sightRange: 2
   attackRange: 0.5
   attackCooldown: 1.5
   moveSpeed: 0.75
-  damage: 60
+  damage: 30
   hp: 100
+  coinBonus: 20
   teamType: 1

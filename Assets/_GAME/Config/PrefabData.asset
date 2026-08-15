@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemySlimePrefab: {fileID: 7357042183870231940, guid: d3c23cf90e7ba61448accd757b797ae4, type: 3}
   EnemyOrcPrefab: {fileID: 8204230367805579204, guid: 3772c9c3bebd13745ac8d91f66858a6d, type: 3}
+  EnemyBloodPrefab: {fileID: 183012646271473767, guid: b498a56ef89f7fb4e84583ebb9ff16e0, type: 3}
+  EnemyDemonPrefab: {fileID: 2693201267363868508, guid: c7b1eac860b158a40a9bad202c3e5268, type: 3}
   AllySwordPrefab: {fileID: 8749801946855063621, guid: f5dbbd08cb7e3284f8774709cab1869a, type: 3}
   ProjectileArrowPrefab: {fileID: 2403173786753717853, guid: e5a83cfc9df1ffa4aae96ca8a9804b83, type: 3}
   ProjectileBulletPrefab: {fileID: 7233129558679760992, guid: b8820014f53309a44b5a255634a7bd4e, type: 3}

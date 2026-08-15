@@ -6,7 +6,8 @@ public enum EnemyType
 {
     Slime,
     Orc,
-
+    Blood,
+    Demon,
 }
 public class EnemyController : CharacterBase
 {
@@ -42,6 +43,7 @@ public class EnemyController : CharacterBase
     public override void Walk()
     {
         base.Walk();
+        if (IsDead) return;
         if (currentTarget == null)
         {
             MoveToPosition(waypointPath.WaypointList[currentWpTargetIndx].position);
@@ -51,7 +53,14 @@ public class EnemyController : CharacterBase
     protected override void Die()
     {
         base.Die();
+        GameManager.Instance.IncreaseCoin(data.coinBonus);
+        UIManager.Instance.TriggerCoinUpdate();
+    }
+
+    public override void OnDespawn()
+    {
         WaveManager.Instance.OnEnemyDead();
+        base.OnDespawn();
     }
 
     public void WaypointIndexCheck()

@@ -7,7 +7,10 @@ public enum GameState
 {
     PrepareState,
     BattleState,
-    EndState
+    EndState,
+    Playing,
+    Win,
+    Lose
 }
 
 public class GameManager : Singleton<GameManager>
@@ -15,6 +18,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] public EnemyController Enemy;
     [SerializeField] public AllyController Ally;
     [SerializeField] public PrefabData PrefabData;
+    [SerializeField] public MainTower mainTower;
     private EnemyFactory enemyFactory;
     public Transform enemySpawner;
     public Transform allySpawner;
@@ -29,6 +33,8 @@ public class GameManager : Singleton<GameManager>
     protected override void Awake()
     {
         base.Awake();
+        Time.timeScale = 1f;
+        CurrentState = GameState.Playing;
         CurrentState = GameState.PrepareState;
         enemyFactory = new EnemyFactory();
     }
@@ -64,5 +70,28 @@ public class GameManager : Singleton<GameManager>
         }
         CurrentCoin -= coin;
         return true;
+    }
+
+    public void EndGame()
+    {
+        if(CurrentState == GameState.Playing)
+        {
+            return;
+        }
+        if(CurrentState == GameState.Lose)
+        {
+            Time.timeScale = 0f;
+            UIManager.Instance.ShowLosePanel();
+        }
+        if(CurrentState == GameState.Win)
+        {
+            Time.timeScale = 0f;
+            UIManager.Instance.ShowWinPanel();
+        }
+    }
+
+    public void TryAgain()
+    {
+
     }
 }

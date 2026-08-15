@@ -13,7 +13,17 @@ public class MainTower : MonoBehaviour
         if (e != null)
         {
             CurrentHP -= damageTaken;
+            if(CurrentHP <= 0)
+            {
+                CurrentHP = 0;
+            }
+            UIManager.Instance.UpdateMainTowerHpText(CurrentHP);
             e.OnDespawn();
+            if(CurrentHP <= 0)
+            {
+                GameManager.Instance.CurrentState = GameState.Lose;
+                GameManager.Instance.EndGame();
+            }
         }
     }
 }

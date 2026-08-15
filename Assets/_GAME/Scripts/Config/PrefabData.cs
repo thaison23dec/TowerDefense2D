@@ -8,6 +8,8 @@ public class PrefabData : ScriptableObject
     [Header("Enemy Prefabs")]
     public EnemyController EnemySlimePrefab;
     public EnemyController EnemyOrcPrefab;
+    public EnemyController EnemyBloodPrefab;
+    public EnemyController EnemyDemonPrefab;
     [Space(20)]
 
 
@@ -44,7 +46,11 @@ public class PrefabData : ScriptableObject
             case EnemyType.Slime:
                 return EnemySlimePrefab;
             case EnemyType.Orc:
-                return EnemyOrcPrefab;       
+                return EnemyOrcPrefab;
+            case EnemyType.Blood:
+                return EnemyBloodPrefab;
+            case EnemyType.Demon:
+                return EnemyDemonPrefab;
         }
         return null;
     }

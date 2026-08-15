@@ -11,6 +11,7 @@ public class CharacterData : ScriptableObject
     [SerializeField] private float moveSpeed;
     [SerializeField] private float damage;
     [SerializeField] private float hp;
+    [SerializeField] public int coinBonus;
     [SerializeField] private TeamType teamType;
 
     public float SightRange => sightRange;
