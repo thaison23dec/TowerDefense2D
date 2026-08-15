@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] public Transform SpawnPos;
-    [SerializeField] public WaypointPath waypointPath;
+    [SerializeField] public List<WaypointPath> waypointPathList;
     [SerializeField] public List<EnemyGroup> enemyGroupList;
     private EnemyFactory enemyFactory;
 
@@ -26,7 +26,8 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(0.75f);
             EnemyController e = enemyFactory.Create(enemyGroup.enemyType, SpawnPos.position);
             e.Init();
-            e.waypointPath = waypointPath;
+            int rand = Random.Range(0, waypointPathList.Count);
+            e.waypointPath = waypointPathList[rand];
         }
     }
 }

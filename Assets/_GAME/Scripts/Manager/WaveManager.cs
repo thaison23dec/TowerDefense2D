@@ -21,6 +21,11 @@ public class WaveManager : Singleton<WaveManager>
 
     public void InitWave()
     {
+        StartCoroutine(InitWaveCoroutine());
+    }
+
+    IEnumerator InitWaveCoroutine()
+    {
         currentWaveIndex++;
         UIManager.Instance.UpdateWaveIndexText(currentWaveIndex, WaveAmount);
         aliveEnemyCount = 0;
@@ -33,7 +38,7 @@ public class WaveManager : Singleton<WaveManager>
                 if (enemyGroup.WaveIndex == currentWaveIndex)
                 {
                     aliveEnemyCount += enemyGroup.Quantity;
-
+                    yield return new WaitForSeconds(1f);
                     enemySpawner.SpawnEnemy(enemyGroup);
                 }
             }
