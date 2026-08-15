@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField] public LevelDatabase LevelDatabase;
+    [SerializeField] public int currentGameLevel;
 
     protected override void Awake()
     {
         base.Awake();
+        //LockAllLevels();
         DontDestroyOnLoad(gameObject);
     }
 
@@ -17,7 +19,7 @@ public class LevelManager : Singleton<LevelManager>
     {
         Time.timeScale = 1f;
         LevelData level = LevelDatabase.levels[index - 1];
-        GameManager.Instance.SetCurrentGameLevel(level.levelIndex);
+        currentGameLevel = level.levelIndex;
         SceneManager.LoadScene(level.sceneName);
     }
 
@@ -60,5 +62,16 @@ public class LevelManager : Singleton<LevelManager>
         return PlayerPrefs.GetInt(
             $"Level_{levelIndex}_Unlocked", 0
         ) == 1;
+    }
+
+    private void LockAllLevels()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            PlayerPrefs.SetInt($"Level_{i}_Unlocked", 0);
+            PlayerPrefs.SetInt($"Level_{i}_Completed", 0);
+        }
+
+        PlayerPrefs.Save();
     }
 }

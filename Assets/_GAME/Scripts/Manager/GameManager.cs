@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -15,14 +16,7 @@ public enum GameState
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] public EnemyController Enemy;
-    [SerializeField] public AllyController Ally;
     [SerializeField] public PrefabData PrefabData;
-    [SerializeField] public MainTower mainTower;
-    [SerializeField] private int currentGameLevel;
-    private EnemyFactory enemyFactory;
-    public Transform enemySpawner;
-    public Transform allySpawner;
     public GameState CurrentState;
 
     public event Action OnStartPrepare;
@@ -36,16 +30,10 @@ public class GameManager : Singleton<GameManager>
         base.Awake();
         Time.timeScale = 1f;
         CurrentState = GameState.Playing;
-        CurrentState = GameState.PrepareState;
-        enemyFactory = new EnemyFactory();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            
-        }
         if (Input.GetKeyDown(KeyCode.E))
         {
             WaveManager.Instance.InitWave();
@@ -54,7 +42,6 @@ public class GameManager : Singleton<GameManager>
 
     public void StartNewWave()
     {
-        CurrentState = GameState.BattleState;
         WaveManager.Instance.InitWave();
     }
 
@@ -88,17 +75,22 @@ public class GameManager : Singleton<GameManager>
         {
             Time.timeScale = 0f;
             UIManager.Instance.ShowWinPanel();
-            LevelManager.Instance.CompleteLevel(currentGameLevel);
-            if (!LevelManager.Instance.IsCompleted(currentGameLevel += 1))
+            LevelManager.Instance.CompleteLevel(LevelManager.Instance.currentGameLevel);
+            if (!LevelManager.Instance.IsUnlocked(LevelManager.Instance.currentGameLevel + 1))
             {
-                LevelManager.Instance.UnlockLevel(currentGameLevel + 1);
+                LevelManager.Instance.UnlockLevel(LevelManager.Instance.currentGameLevel + 1);
             }
         }
     }
 
-    public void SetCurrentGameLevel(int levelToSet)
+    public void ChangeScene(string scene)
     {
-        currentGameLevel = levelToSet;
+        SceneManager.LoadScene(scene);
+    }
+
+    public void LoadNextLevel()
+    {
+        LevelManager.Instance.LoadNextLevel(LevelManager.Instance.currentGameLevel);
     }
 
     public void TryAgain()

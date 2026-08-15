@@ -29,7 +29,7 @@ public class TowerSpawn : TowerBase
         patrolCells = MapManager.Instance.FindPatrolCells(
             transform.position,
             allyCount,
-            1
+            2
         );
 
         if (patrolCells == null)

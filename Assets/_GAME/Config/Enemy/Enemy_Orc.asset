@@ -15,7 +15,7 @@ MonoBehaviour:
   sightRange: 2
   attackRange: 0.5
   attackCooldown: 1.5
-  moveSpeed: 0.75
+  moveSpeed: 1.25
   damage: 30
   hp: 100
   coinBonus: 20

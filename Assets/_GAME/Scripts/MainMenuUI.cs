@@ -21,4 +21,9 @@ public class MainMenuUI : MonoBehaviour
             }
         }
     }
+
+    public void LoadLevel(int index)
+    {
+        LevelManager.Instance.LoadLevel(index);
+    }
 }
