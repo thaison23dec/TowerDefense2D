@@ -9,6 +9,7 @@ public class MainMenuUI : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.Instance.PlayRandomMusic();
         foreach(LevelData level in LevelManager.Instance.LevelDatabase.levels)
         {
             if (LevelManager.Instance.IsUnlocked(level.levelIndex))

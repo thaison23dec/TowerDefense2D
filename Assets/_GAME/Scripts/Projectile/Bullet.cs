@@ -62,7 +62,7 @@ public class Bullet : Projectile
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(explodePos, 0.75f, targetMask);
 
         ObjectPoolManager.Instance.SpawnObject(GameManager.Instance.PrefabData.VFXExplosion, explodePos, Quaternion.identity);
-
+        AudioManager.Instance.PlayExplode();
         foreach (Collider2D hit in hitColliders)
         {
             EnemyController enemy = hit.GetComponent<EnemyController>();

@@ -33,6 +33,7 @@ public class TowerArcher : TowerShoot
         //    Quaternion.identity);
 
         Arrow projectile = ObjectPoolManager.Instance.SpawnObject(towerShootData.projectile as Arrow, shootPos.position, Quaternion.identity);
+        AudioManager.Instance.PlayArrowShoot();
 
         Vector3 targetPos = target.transform.position;
         projectile.curentTarget = target.transform;

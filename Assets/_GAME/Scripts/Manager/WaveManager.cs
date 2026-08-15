@@ -25,6 +25,7 @@ public class WaveManager : Singleton<WaveManager>
         UIManager.Instance.UpdateWaveIndexText(currentWaveIndex, WaveAmount);
         aliveEnemyCount = 0;
         UIManager.Instance.HideStartWaveBtn();
+        AudioManager.Instance.PlayStartWave();
         foreach (EnemySpawner enemySpawner in enemySpawnerList)
         {
             foreach (EnemyGroup enemyGroup in enemySpawner.enemyGroupList)

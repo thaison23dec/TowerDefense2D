@@ -276,6 +276,7 @@ public class CharacterBase : MonoBehaviour
         }
         IsDead = true;
         currentState = CHARACTER_STATE.DIE;
+        AudioManager.Instance.PlayDie();
         animator.SetBool("idle", false);
         animator.SetBool("walk", false);
         ChangeAnimTrigger("die");
@@ -313,6 +314,7 @@ public class CharacterBase : MonoBehaviour
             //rb.velocity = Vector2.zero;
 
             ChangeAnimTrigger("attack");
+            AudioManager.Instance.PlayHit();
 
             yield return new WaitForSeconds(0.5f);
             currentTarget.TakeDamage(damage);

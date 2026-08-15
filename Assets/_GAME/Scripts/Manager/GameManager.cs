@@ -32,6 +32,11 @@ public class GameManager : Singleton<GameManager>
         CurrentState = GameState.Playing;
     }
 
+    private void Start()
+    {
+        AudioManager.Instance.PlayRandomMusic();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
