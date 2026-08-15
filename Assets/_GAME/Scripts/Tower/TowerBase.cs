@@ -16,7 +16,7 @@ public enum TowerLevel
     Lv2,
 }
 
-public class TowerBase : UnitController
+public class TowerBase : MonoBehaviour
 {
     public TowerType Type;
     public TowerLevel Level;

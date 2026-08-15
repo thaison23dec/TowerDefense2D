@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VFXExplosion : UnitController
+public class VFXExplosion : MonoBehaviour
 {
     [SerializeField] private float lifeTime = 2f;
 

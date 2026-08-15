@@ -162,7 +162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c008202689c847499dd80b288ffaf64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PoolType: 7
   Type: 1
   Level: 0
   towerData: {fileID: 11400000, guid: 14bcdf867e55868439e307022f694da0, type: 2}
@@ -174,7 +173,7 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 128
-  countDownTime: 1
+  countDownTime: 2
   timer: 0
 --- !u!61 &4035321135020760049
 BoxCollider2D:

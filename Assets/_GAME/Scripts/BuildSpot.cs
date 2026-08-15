@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildSpot : UnitController
+public class BuildSpot : MonoBehaviour
 {
     private void OnMouseDown()
     {

@@ -365,7 +365,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  LevelDatabase: {fileID: 11400000, guid: 1344dfaad7fe61647a0c09991763d524, type: 2}
 --- !u!4 &54673424
 Transform:
   m_ObjectHideFlags: 0
