@@ -5973,7 +5973,7 @@ MonoBehaviour:
   spawner: {fileID: 3083653556192710080}
   enemyType: 2
   Quantity: 3
-  WaveIndex: 4
+  WaveIndex: 3
 --- !u!1 &604734359
 GameObject:
   m_ObjectHideFlags: 0
@@ -8454,7 +8454,7 @@ MonoBehaviour:
   spawner: {fileID: 3083653556192710080}
   enemyType: 3
   Quantity: 3
-  WaveIndex: 1
+  WaveIndex: 4
 --- !u!1 &1750726952
 GameObject:
   m_ObjectHideFlags: 0
@@ -9778,9 +9778,9 @@ Transform:
   m_Children:
   - {fileID: 1586860693976425301}
   - {fileID: 7641355590914951685}
-  - {fileID: 1747404911}
   - {fileID: 3337265691948233785}
   - {fileID: 547251575}
+  - {fileID: 1747404911}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3083653556192710080

@@ -56,10 +56,13 @@ public class TowerBase : MonoBehaviour
     public virtual void Upgrade()
     {
         Debug.Log("Upgrade " + name);
-        if (GameManager.Instance.DecreaseCoin(BuyPrice) && upgradedTower != null)
+        if (GameManager.Instance.DecreaseCoin(UpgradePrice) && upgradedTower != null)
         {
             UIManager.Instance.TriggerCoinUpdate();
+            OnDespawn();
             Instantiate(upgradedTower, transform.position, Quaternion.identity);
+            VFXCoinPopUp popUp = ObjectPoolManager.Instance.SpawnObject(GameManager.Instance.PrefabData.VFXCoinPopUp, transform.position, Quaternion.identity);
+            popUp.DecreasePopUp(UpgradePrice);
             Destroy(gameObject);
         }
     }
@@ -68,6 +71,9 @@ public class TowerBase : MonoBehaviour
     {
         GameManager.Instance.IncreaseCoin(towerData.SellPrice);
         UIManager.Instance.TriggerCoinUpdate();
+        VFXCoinPopUp popUp = ObjectPoolManager.Instance.SpawnObject(GameManager.Instance.PrefabData.VFXCoinPopUp, transform.position, Quaternion.identity);
+        popUp.IncreasePopUp(towerData.SellPrice);
+        OnDespawn();
         Instantiate(GameManager.Instance.PrefabData.BuildSpot, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

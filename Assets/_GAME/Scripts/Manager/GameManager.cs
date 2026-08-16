@@ -100,6 +100,6 @@ public class GameManager : Singleton<GameManager>
 
     public void TryAgain()
     {
-
+        LevelManager.Instance.LoadLevel(LevelManager.Instance.currentGameLevel);
     }
 }

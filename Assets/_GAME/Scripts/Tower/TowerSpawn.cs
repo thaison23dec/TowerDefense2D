@@ -22,6 +22,17 @@ public class TowerSpawn : TowerBase
         }
     }
 
+    public override void OnDespawn()
+    {
+        base.OnDespawn();
+        foreach (AllyController a in allies)
+        {
+            a.OnDead -= HandleAllyDead;
+            a.OnDespawn();
+
+        }
+    }
+
     public override void Init()
     {
         base.Init();
@@ -109,14 +120,6 @@ public class TowerSpawn : TowerBase
     public override void Upgrade()
     {
         base.Upgrade();
-        if (GameManager.Instance.DecreaseCoin(BuyPrice) && upgradedTower != null)
-        {
-            foreach (AllyController a in allies)
-            {
-                a.OnDead -= HandleAllyDead;
-                a.OnDespawn();
-
-            }
-        }
+        
     }
 }

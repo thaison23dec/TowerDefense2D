@@ -17,7 +17,7 @@ TagManager:
   - Enemy
   - Tower
   - BuildSpot
-  - 
+  - CoinPopUp
   - 
   - 
   - 
@@ -42,4 +42,25 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1442959575
+    locked: 0
+  - name: CoinPopUp
+    uniqueID: 1534273571
+    locked: 0
+  - name: HpBar
+    uniqueID: 813907081
+    locked: 0
+  - name: Tower
+    uniqueID: 125205249
+    locked: 0
+  - name: VFX
+    uniqueID: 528437235
+    locked: 0
+  - name: Character
+    uniqueID: 1562428983
+    locked: 0
+  - name: BuildSpot
+    uniqueID: 3965517819
     locked: 0

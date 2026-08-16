@@ -250,4 +250,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3c592d4b6d5dc45bb983507e952b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PoolType: 8

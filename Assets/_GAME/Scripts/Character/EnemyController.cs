@@ -54,6 +54,8 @@ public class EnemyController : CharacterBase
     {
         base.Die();
         GameManager.Instance.IncreaseCoin(data.coinBonus);
+        VFXCoinPopUp popUp = ObjectPoolManager.Instance.SpawnObject(GameManager.Instance.PrefabData.VFXCoinPopUp, transform.position, Quaternion.identity);
+        popUp.IncreasePopUp(data.coinBonus);
         UIManager.Instance.TriggerCoinUpdate();
     }
 

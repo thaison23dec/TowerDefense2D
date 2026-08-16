@@ -24,3 +24,4 @@ MonoBehaviour:
   TowerGun: {fileID: 7867036119234225683, guid: b3804a163033af347a1fd6cd98d29cf0, type: 3}
   BuildSpot: {fileID: 760351234198037445, guid: 276008bf27552b04b832f23f72f3dc3c, type: 3}
   VFXExplosion: {fileID: -9044813499803831542, guid: 2442b16a613c40848bc61fe0718336e1, type: 3}
+  VFXCoinPopUp: {fileID: 3848195147380309196, guid: cd3f382d0aecc01428a03eacf4639ee4, type: 3}

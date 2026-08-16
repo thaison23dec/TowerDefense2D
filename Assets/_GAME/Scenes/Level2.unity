@@ -201,6 +201,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128970753}
   m_CullTransparentMesh: 1
+--- !u!1 &170608719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 170608720}
+  m_Layer: 0
+  m_Name: Waypoint (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &170608720
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170608719}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5, y: 4.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 504372554}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &244834033
 GameObject:
   m_ObjectHideFlags: 0
@@ -4449,7 +4480,7 @@ GameObject:
   - component: {fileID: 306961979}
   - component: {fileID: 306961978}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: NextLevelBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4518,7 +4549,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 306961979}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1384524523}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: LoadNextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &306961979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4940,11 +4983,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1688908252908312870, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.5
+      value: -10.5
       objectReference: {fileID: 0}
     - target: {fileID: 1688908252908312870, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: 4.25
       objectReference: {fileID: 0}
     - target: {fileID: 3875688399860163629, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4986,6 +5029,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4081538160092043777, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+      propertyPath: waypointList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081538160092043777, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+      propertyPath: waypointList.Array.data[0]
+      value: 
+      objectReference: {fileID: 504372557}
+    - target: {fileID: 4081538160092043777, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+      propertyPath: waypointList.Array.data[1]
+      value: 
+      objectReference: {fileID: 170608720}
+    - target: {fileID: 4081538160092043777, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+      propertyPath: waypointList.Array.data[2]
+      value: 
+      objectReference: {fileID: 504372556}
+    - target: {fileID: 4081538160092043777, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+      propertyPath: waypointList.Array.data[3]
+      value: 
+      objectReference: {fileID: 504372555}
     - target: {fileID: 5763288520557017839, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.25
@@ -5008,7 +5071,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3875688399860163629, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 170608720}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
 --- !u!114 &504372553 stripped
@@ -5022,6 +5088,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6922fe1d59cebb948be5ba88bd5b81f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &504372554 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3875688399860163629, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+  m_PrefabInstance: {fileID: 504372552}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &504372555 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8515366091945197616, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+  m_PrefabInstance: {fileID: 504372552}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &504372556 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5763288520557017839, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+  m_PrefabInstance: {fileID: 504372552}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &504372557 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1688908252908312870, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+  m_PrefabInstance: {fileID: 504372552}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &507615123
 GameObject:
   m_ObjectHideFlags: 0
@@ -6225,7 +6311,7 @@ GameObject:
   - component: {fileID: 871416454}
   - component: {fileID: 871416453}
   m_Layer: 5
-  m_Name: Button (Legacy) (1)
+  m_Name: MenuBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6294,7 +6380,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 871416454}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1384524523}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LevelMenu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &871416454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7973,6 +8071,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1485553210
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1485553211}
+  m_Layer: 0
+  m_Name: Waypoint (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1485553211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485553210}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.25, y: 3.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1921482271103088982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1525069866
 GameObject:
   m_ObjectHideFlags: 0
@@ -8140,7 +8269,7 @@ GameObject:
   - component: {fileID: 1642261844}
   - component: {fileID: 1642261843}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: AgainBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8209,7 +8338,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1642261844}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1384524523}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: TryAgain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1642261844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9040,7 +9181,7 @@ GameObject:
   - component: {fileID: 1969396271}
   - component: {fileID: 1969396270}
   m_Layer: 5
-  m_Name: Button (Legacy) (1)
+  m_Name: MenuBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9109,7 +9250,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1969396271}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1384524523}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LevelMenu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1969396271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9545,7 +9698,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1688908252908312870, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.25
+      value: -10.5
       objectReference: {fileID: 0}
     - target: {fileID: 1688908252908312870, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9591,6 +9744,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4081538160092043777, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+      propertyPath: waypointList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081538160092043777, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+      propertyPath: waypointList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1921482271103088985}
+    - target: {fileID: 4081538160092043777, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+      propertyPath: waypointList.Array.data[1]
+      value: 
+      objectReference: {fileID: 1485553211}
+    - target: {fileID: 4081538160092043777, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+      propertyPath: waypointList.Array.data[2]
+      value: 
+      objectReference: {fileID: 1921482271103088984}
+    - target: {fileID: 4081538160092043777, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+      propertyPath: waypointList.Array.data[3]
+      value: 
+      objectReference: {fileID: 1921482271103088983}
+    - target: {fileID: 4081538160092043777, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+      propertyPath: waypointList.Array.data[4]
+      value: 
+      objectReference: {fileID: 1921482271103088985}
+    - target: {fileID: 4081538160092043777, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+      propertyPath: waypointList.Array.data[5]
+      value: 
+      objectReference: {fileID: 1485553211}
+    - target: {fileID: 4081538160092043777, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+      propertyPath: waypointList.Array.data[6]
+      value: 
+      objectReference: {fileID: 1921482271103088984}
+    - target: {fileID: 4081538160092043777, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+      propertyPath: waypointList.Array.data[7]
+      value: 
+      objectReference: {fileID: 1921482271103088983}
     - target: {fileID: 5763288520557017839, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.25
@@ -9613,9 +9802,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3875688399860163629, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1485553211}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+--- !u!4 &1921482271103088982 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3875688399860163629, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+  m_PrefabInstance: {fileID: 1921482271103088981}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1921482271103088983 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8515366091945197616, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+  m_PrefabInstance: {fileID: 1921482271103088981}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1921482271103088984 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5763288520557017839, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+  m_PrefabInstance: {fileID: 1921482271103088981}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1921482271103088985 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1688908252908312870, guid: 78d37dd37c391d444b3634f0b5bb6d0d, type: 3}
+  m_PrefabInstance: {fileID: 1921482271103088981}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2021135880258354178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9680,7 +9892,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnPos: {fileID: 1462665103}
-  waypointPath: {fileID: 1187615228}
   waypointPathList:
   - {fileID: 1187615228}
   - {fileID: 504372553}

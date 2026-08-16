@@ -38,6 +38,7 @@ public class PrefabData : ScriptableObject
 
     [Header("VFX Prefabs")]
     public VFXExplosion VFXExplosion;
+    public VFXCoinPopUp VFXCoinPopUp;
 
     public EnemyController GetEnemy(EnemyType enemyType)
     {

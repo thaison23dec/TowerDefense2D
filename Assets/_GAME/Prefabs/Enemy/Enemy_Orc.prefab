@@ -226,7 +226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a0fd1f2dd81af45a6b438a8df54106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PoolType: 0
   data: {fileID: 11400000, guid: d979304a66a3ff2478cccc25cc59cb3d, type: 2}
   animator: {fileID: 1086545713750654314}
   graphic: {fileID: 7092925951174691201}
@@ -242,7 +241,9 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 64
+  Type: 0
   currentWpTargetIndx: 0
+  waypointPath: {fileID: 0}
 --- !u!1001 &1040462972273271136
 PrefabInstance:
   m_ObjectHideFlags: 0

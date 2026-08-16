@@ -120,7 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6074eb051d6f4aa4faf4b2d8b978b805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PoolType: 1
   data: {fileID: 11400000, guid: 36a10aec5e443a24585f9ba93b1a49d9, type: 2}
   animator: {fileID: 8984782654507726326}
   graphic: {fileID: 9012614131918263543}
@@ -136,7 +135,7 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 128
-  patrolPos: {fileID: 0}
+  patrolPos: {x: 0, y: 0, z: 0}
 --- !u!1 &9012614131918263543
 GameObject:
   m_ObjectHideFlags: 0
