@@ -4,6 +4,12 @@ A playable 2D tower-defense prototype built with **Unity** and **C#**. The proje
 
 > Built as a Unity Developer portfolio project by [Thai Son](https://github.com/thaison23dec).
 
+## Play the game
+
+**[Play Tower Defense 2D in your browser](https://thaison23dec.github.io/TowerDefense2D/)** — no installation required.
+
+The project is published as a Unity WebGL build through GitHub Pages. For the best experience, use a current desktop browser and allow the game a moment to load.
+
 ## At a glance
 
 | | |
@@ -12,7 +18,7 @@ A playable 2D tower-defense prototype built with **Unity** and **C#**. The proje
 | **Language** | C# |
 | **Genre** | 2D Tower Defense |
 | **Playable content** | Level-select menu and 3 playable levels |
-| **Platform** | Desktop (Editor / standalone build) |
+| **Platform** | Web browser (WebGL) and Unity Editor |
 
 ## Gameplay
 
@@ -55,6 +61,8 @@ Assets/_GAME/
 │   ├── Tower/      # Tower base classes and tower implementations
 │   └── Effects/    # Combat feedback VFX
 └── Tiles/        # Tilemap assets
+
+docs/             # Deployable Unity WebGL build for GitHub Pages
 ```
 
 ## Run locally
@@ -89,7 +97,7 @@ If you are reviewing the code, these files provide the fastest overview of the p
 
 ## Roadmap
 
-- Add a WebGL build and a short gameplay video/GIF for instant portfolio review.
+- Add a short gameplay video/GIF and development notes for an even faster portfolio review.
 - Add automated play-mode tests for wave completion, economy, and level progression.
 - Expand targeting priorities and tower/enemy variety.
 - Add save-data versioning and volume/settings UI.
