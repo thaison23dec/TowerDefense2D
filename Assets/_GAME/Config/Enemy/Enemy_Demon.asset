@@ -18,5 +18,5 @@ MonoBehaviour:
   moveSpeed: 1.25
   damage: 40
   hp: 100
-  coinBonus: 20
+  coinBonus: 40
   teamType: 1

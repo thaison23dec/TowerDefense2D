@@ -92,25 +92,36 @@ public class MapManager : Singleton<MapManager>
 
     private List<Vector3Int> CheckDirection(Vector3Int towerCell, Vector3Int forward, int allyCount, int radius)
     {
-        List<Vector3Int> cells = new List<Vector3Int>();
-
-        Vector3Int center = towerCell + forward * radius;
-
         Vector3Int right = GetRight(forward);
 
         int start = -(allyCount / 2);
 
-        for (int i = 0; i < allyCount; i++)
+        for (int distance = 1; distance <= radius; distance++)
         {
-            Vector3Int cell = center + right * (start + i);
+            Vector3Int center = towerCell + forward * distance;
 
-            if (!IsWalkable(cell))
-                return null;
+            List<Vector3Int> cells = new List<Vector3Int>();
 
-            cells.Add(cell);
+            bool valid = true;
+
+            for (int i = 0; i < allyCount; i++)
+            {
+                Vector3Int cell = center + right * (start + i);
+
+                if (!IsWalkable(cell))
+                {
+                    valid = false;
+                    break;
+                }
+
+                cells.Add(cell);
+            }
+            if (valid)
+            {
+                return cells;
+            }
         }
-
-        return cells;
+        return null;
     }
 
     private Vector3Int GetRight(Vector3Int forward)
